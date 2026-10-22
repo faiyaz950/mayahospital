@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f8f9"/><stop offset="1" stop-color="#e0eef0"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d2e6e9"/><stop offset="1" stop-color="#b5d3d8"/></linearGradient>
+    <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d4a58"/><stop offset="1" stop-color="#08343f"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#wall)"/>
+  <rect y="430" width="800" height="170" fill="url(#floor)"/>
+  <g stroke="#fff" stroke-opacity=".4"><path d="M0 470 H800 M0 520 H800 M0 570 H800"/></g>
+  <!-- window wall -->
+  <rect x="40" y="60" width="240" height="300" rx="18" fill="#9cd6de"/>
+  <rect x="40" y="60" width="240" height="300" rx="18" fill="none" stroke="#fff" stroke-width="10"/>
+  <path d="M160 60 V360 M40 210 H280" stroke="#fff" stroke-width="8"/>
+  <path d="M60 80 l50 0 l-40 120 l-20 0z" fill="#fff" opacity=".35"/>
+  <circle cx="230" cy="130" r="26" fill="#ffd36b" opacity=".9"/>
+  <!-- wall logo -->
+  <g transform="translate(540 150)">
+    <rect x="-150" y="-60" width="300" height="120" rx="26" fill="#fff"/>
+    <circle cx="-95" cy="0" r="34" fill="#d42029"/>
+    <path d="M-95 14 C-111 3 -114 -8 -106 -13 C-101 -17 -95 -12 -95 -7 C-95 -12 -89 -17 -84 -13 C-76 -8 -79 3 -95 14Z" fill="#fff"/>
+    <text x="-45" y="-2" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="30" font-weight="800" fill="#08343f">MAYA</text>
+    <text x="-45" y="26" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="15" font-weight="700" fill="#d42029" letter-spacing="5">HOSPITAL</text>
+  </g>
+  <!-- desk -->
+  <rect x="340" y="320" width="400" height="150" rx="22" fill="url(#desk)"/>
+  <rect x="330" y="306" width="420" height="24" rx="12" fill="#fff"/>
+  <rect x="340" y="400" width="400" height="10" fill="#d42029"/>
+  <!-- monitor -->
+  <rect x="560" y="250" width="90" height="58" rx="8" fill="#04232b"/>
+  <rect x="598" y="306" width="14" height="10" fill="#04232b"/>
+  <!-- plant -->
+  <rect x="300" y="380" width="34" height="56" rx="8" fill="#fff"/>
+  <g fill="#12a59a"><ellipse cx="306" cy="352" rx="12" ry="32" transform="rotate(-20 306 352)"/><ellipse cx="328" cy="350" rx="12" ry="32" transform="rotate(22 328 350)"/><ellipse cx="317" cy="340" rx="10" ry="34"/></g>
+  <!-- chairs -->
+  <g>
+    <rect x="60" y="430" width="200" height="60" rx="20" fill="#d42029"/>
+    <rect x="70" y="390" width="80" height="54" rx="18" fill="#e5323a"/>
+    <rect x="170" y="390" width="80" height="54" rx="18" fill="#e5323a"/>
+    <rect x="80" y="490" width="8" height="40" fill="#08343f"/><rect x="232" y="490" width="8" height="40" fill="#08343f"/>
+  </g>
+  <!-- ceiling lights -->
+  <g fill="#fff"><rect x="380" y="0" width="6" height="40"/><ellipse cx="383" cy="46" rx="30" ry="10"/><rect x="620" y="0" width="6" height="40"/><ellipse cx="623" cy="46" rx="30" ry="10"/></g>
+</svg>

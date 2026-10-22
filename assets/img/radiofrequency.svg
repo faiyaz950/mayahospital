@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2f1f3"/><stop offset="1" stop-color="#b5d5da"/></linearGradient>
+    <linearGradient id="dev" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dcedf0"/></linearGradient>
+  </defs>
+  <style>
+    .wave { stroke-dasharray: 520; stroke-dashoffset: 520; animation: w 2.8s ease-in-out infinite; }
+    .ring { transform-origin: 560px 250px; animation: r 2.4s ease-out infinite; }
+    .ring.b { animation-delay: -1.2s; }
+    @keyframes w { 50%, 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -520; } }
+    @keyframes r { 0% { transform: scale(.4); opacity: .8; } 100% { transform: scale(1.5); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .wave { stroke-dashoffset: 0; } }
+  </style>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <circle cx="700" cy="60" r="160" fill="#fff" opacity=".35"/>
+  <!-- RF generator -->
+  <rect x="70" y="120" width="300" height="230" rx="28" fill="url(#dev)" stroke="#fff" stroke-width="4"/>
+  <rect x="96" y="148" width="248" height="120" rx="16" fill="#08343f"/>
+  <path class="wave" d="M110 210 h40 l14 -34 l18 70 l18 -90 l18 80 l14 -26 h88" fill="none" stroke="#3fb6c4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="126" cy="306" r="18" fill="#d42029"/>
+  <circle cx="180" cy="306" r="18" fill="#136070"/>
+  <rect x="226" y="296" width="118" height="20" rx="10" fill="#c8e8ec"/>
+  <!-- cable -->
+  <path d="M370 240 C 440 240, 440 330, 500 300" fill="none" stroke="#0d4a58" stroke-width="7" stroke-linecap="round"/>
+  <!-- probe -->
+  <g transform="rotate(-28 560 250)">
+    <rect x="490" y="236" width="110" height="28" rx="14" fill="#0d4a58"/>
+    <rect x="600" y="245" width="70" height="10" rx="5" fill="#a6cbd1"/>
+    <circle cx="672" cy="250" r="7" fill="#d42029"/>
+  </g>
+  <circle class="ring" cx="560" cy="250" r="90" fill="none" stroke="#d42029" stroke-width="3"/>
+  <circle class="ring b" cx="560" cy="250" r="90" fill="none" stroke="#136070" stroke-width="3"/>
+  <!-- nerve -->
+  <path d="M600 420 C 640 360, 700 380, 740 330" fill="none" stroke="#f25a60" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 10"/>
+</svg>

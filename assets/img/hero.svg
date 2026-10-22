@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 920" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d4a58"/>
+      <stop offset="1" stop-color="#04232b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".75" cy=".2" r=".6">
+      <stop offset="0" stop-color="#e5323a" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#e5323a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx=".1" cy=".85" r=".5">
+      <stop offset="0" stop-color="#3fb6c4" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#3fb6c4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dcedf0"/>
+    </linearGradient>
+    <linearGradient id="glassSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bfdcdf"/>
+      <stop offset="1" stop-color="#a3c7cd"/>
+    </linearGradient>
+    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fd3dc"/>
+      <stop offset="1" stop-color="#1b7f8f"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5a61"/>
+      <stop offset="1" stop-color="#c3141d"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6f3f5"/>
+      <stop offset="1" stop-color="#cce4e8"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .ecg { stroke-dasharray: 700; stroke-dashoffset: 700; animation: draw 3.2s ease-in-out infinite; }
+    .ecg-dot { animation: blink 3.2s ease-in-out infinite; }
+    .pulse { transform-origin: 600px 170px; animation: pulse 1.6s ease-in-out infinite; }
+    .halo { transform-origin: 600px 170px; animation: halo 1.6s ease-out infinite; }
+    .lit { animation: lit 4s ease-in-out infinite; }
+    .lit.l2 { animation-delay: -1.3s; } .lit.l3 { animation-delay: -2.6s; }
+    @keyframes draw { 0% { stroke-dashoffset: 700; } 55%, 75% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -700; } }
+    @keyframes blink { 0%, 45% { opacity: 0; } 55%, 75% { opacity: 1; } 100% { opacity: 0; } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.08); } 30% { transform: scale(.98); } 45% { transform: scale(1.05); } }
+    @keyframes halo { 0% { transform: scale(.8); opacity: .5; } 100% { transform: scale(1.6); opacity: 0; } }
+    @keyframes lit { 0%, 100% { opacity: .15; } 50% { opacity: .55; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .ecg { stroke-dashoffset: 0; } }
+  </style>
+  <rect width="800" height="920" fill="url(#sky)"/>
+  <rect width="800" height="920" fill="url(#glow)"/>
+  <rect width="800" height="920" fill="url(#glow2)"/>
+
+  <!-- stars / dots -->
+  <g fill="#fff" opacity=".35">
+    <circle cx="90" cy="120" r="2"/><circle cx="180" cy="70" r="1.5"/><circle cx="320" cy="140" r="1.8"/>
+    <circle cx="700" cy="90" r="1.5"/><circle cx="620" cy="200" r="2"/><circle cx="50" cy="300" r="1.5"/>
+    <circle cx="760" cy="330" r="1.8"/><circle cx="420" cy="60" r="1.2"/>
+  </g>
+
+  <!-- orbit rings -->
+  <g fill="none" stroke="#fff" stroke-opacity=".08">
+    <circle cx="600" cy="170" r="140"/>
+    <circle cx="600" cy="170" r="210"/>
+  </g>
+
+  <!-- floating heart emblem -->
+  <circle class="halo" cx="600" cy="170" r="60" fill="none" stroke="#ff6b71" stroke-width="3"/>
+  <g class="pulse">
+    <g transform="translate(600 170)">
+      <circle r="78" fill="#fff" fill-opacity=".08"/>
+      <circle r="56" fill="url(#red)"/>
+      <path d="M0 22 C-26 4 -30 -14 -18 -22 C-9 -28 0 -20 0 -12 C0 -20 9 -28 18 -22 C30 -14 26 4 0 22Z" fill="#fff"/>
+    </g>
+  </g>
+
+  <!-- ECG line -->
+  <path d="M0 330 H170 L190 300 L210 370 L232 250 L254 350 L270 330 H420" fill="none" stroke="#ff6b71" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".25"/>
+  <path class="ecg" d="M0 330 H170 L190 300 L210 370 L232 250 L254 350 L270 330 H420" fill="none" stroke="#ff6b71" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="ecg-dot" cx="420" cy="330" r="6" fill="#ff6b71"/>
+
+  <!-- floating plus marks -->
+  <g fill="#fff" opacity=".18">
+    <path d="M110 200h10v-10h8v10h10v8h-10v10h-8v-10h-10z"/>
+    <path d="M700 420h8v-8h6v8h8v6h-8v8h-6v-8h-8z"/>
+  </g>
+
+  <!-- ground -->
+  <path d="M-20 760 C 200 700, 600 700, 820 760 V 940 H -20 Z" fill="url(#ground)"/>
+  <path d="M-20 800 C 220 750, 580 750, 820 800 V 940 H -20 Z" fill="#fff" opacity=".6"/>
+
+  <!-- Building: side wing left -->
+  <g>
+    <rect x="110" y="520" width="180" height="250" rx="10" fill="url(#glass)"/>
+    <rect x="110" y="520" width="180" height="22" rx="10" fill="#d42029"/>
+    <g fill="url(#win)">
+      <rect x="132" y="566" width="38" height="44" rx="6"/><rect x="182" y="566" width="38" height="44" rx="6"/><rect x="232" y="566" width="38" height="44" rx="6"/>
+      <rect x="132" y="628" width="38" height="44" rx="6"/><rect x="182" y="628" width="38" height="44" rx="6"/><rect x="232" y="628" width="38" height="44" rx="6"/>
+    </g>
+    <rect x="132" y="690" width="138" height="80" rx="6" fill="#0d4a58" opacity=".12"/>
+  </g>
+
+  <!-- Building: main tower -->
+  <g>
+    <rect x="270" y="380" width="250" height="390" rx="14" fill="url(#glass)"/>
+    <rect x="520" y="400" width="34" height="370" fill="url(#glassSide)"/>
+    <path d="M520 380 L554 400 L520 400 Z" fill="#b2d1d6"/>
+    <!-- roof sign -->
+    <rect x="330" y="340" width="130" height="44" rx="12" fill="#d42029"/>
+    <text x="395" y="369" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="2">MAYA</text>
+    <!-- glass curtain -->
+    <g fill="url(#win)">
+      <rect x="296" y="410" width="60" height="70" rx="8"/><rect x="366" y="410" width="60" height="70" rx="8"/><rect x="436" y="410" width="60" height="70" rx="8"/>
+      <rect x="296" y="494" width="60" height="70" rx="8"/><rect x="366" y="494" width="60" height="70" rx="8"/><rect x="436" y="494" width="60" height="70" rx="8"/>
+      <rect x="296" y="578" width="60" height="70" rx="8"/><rect x="366" y="578" width="60" height="70" rx="8"/><rect x="436" y="578" width="60" height="70" rx="8"/>
+    </g>
+    <!-- lit windows -->
+    <rect class="lit" x="366" y="410" width="60" height="70" rx="8" fill="#ffe08a"/>
+    <rect class="lit l2" x="296" y="578" width="60" height="70" rx="8" fill="#ffe08a"/>
+    <rect class="lit l3" x="436" y="494" width="60" height="70" rx="8" fill="#ffe08a"/>
+    <!-- reflections -->
+    <g fill="#fff" opacity=".35">
+      <path d="M300 414 l20 0 l-16 62 l-4 0z"/><path d="M370 498 l20 0 l-16 62 l-4 0z"/><path d="M440 582 l20 0 l-16 62 l-4 0z"/>
+    </g>
+    <!-- entrance -->
+    <rect x="340" y="672" width="112" height="98" rx="10" fill="#08343f"/>
+    <rect x="352" y="684" width="42" height="86" rx="4" fill="#1b7f8f" opacity=".75"/>
+    <rect x="398" y="684" width="42" height="86" rx="4" fill="#1b7f8f" opacity=".75"/>
+    <rect x="318" y="660" width="156" height="14" rx="7" fill="#d42029"/>
+    <!-- cross plate -->
+    <g transform="translate(535 470)">
+      <circle r="0" />
+    </g>
+  </g>
+
+  <!-- Building: right wing -->
+  <g>
+    <rect x="554" y="560" width="150" height="210" rx="10" fill="url(#glass)"/>
+    <g fill="url(#win)">
+      <rect x="574" y="590" width="50" height="40" rx="6"/><rect x="634" y="590" width="50" height="40" rx="6"/>
+      <rect x="574" y="644" width="50" height="40" rx="6"/><rect x="634" y="644" width="50" height="40" rx="6"/>
+    </g>
+    <g transform="translate(629 728)">
+      <rect x="-26" y="-26" width="52" height="52" rx="14" fill="#d42029"/>
+      <path d="M-5 -16h10v11h11v10h-11v11h-10v-11h-11v-10h11z" fill="#fff"/>
+    </g>
+  </g>
+
+  <!-- trees -->
+  <g>
+    <rect x="72" y="720" width="8" height="54" rx="4" fill="#4f7480"/>
+    <circle cx="76" cy="708" r="34" fill="#12a59a"/>
+    <circle cx="94" cy="690" r="20" fill="#2fc3b6"/>
+    <rect x="720" y="716" width="8" height="58" rx="4" fill="#4f7480"/>
+    <circle cx="724" cy="704" r="32" fill="#12a59a"/>
+    <circle cx="708" cy="688" r="18" fill="#2fc3b6"/>
+  </g>
+
+  <!-- path to entrance -->
+  <path d="M352 772 L440 772 L520 920 L272 920 Z" fill="#fff" opacity=".7"/>
+</svg>

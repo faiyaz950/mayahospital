@@ -1,2 +1,4 @@
 .DS_Store
 Thumbs.db
+includes/config.local.php
+data/*.sqlite

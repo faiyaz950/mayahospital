@@ -170,28 +170,38 @@
     });
   }
 
-  // Appointment form -> WhatsApp message to the appointment desk
+  // Appointment form -> saved on the server (appointment.php); plain POST still works without JS
   const form = document.querySelector('#appointment-form');
   if (form) {
-    const dateInput = form.querySelector('[name="date"]');
-    if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+    const success = form.querySelector('.form-success');
+    const error = form.querySelector('.form-error');
+    const button = form.querySelector('button[type="submit"]');
+    const show = (el, msg) => {
+      [success, error].forEach((x) => x && x.classList.remove('show'));
+      if (el) { el.textContent = msg; el.classList.add('show'); }
+    };
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
-      const d = Object.fromEntries(new FormData(form));
-      const lines = [
-        'Appointment Request — Maya Hospital',
-        `Name: ${d.name}`,
-        `Mobile: ${d.phone}`,
-        `Department: ${d.department}`,
-        d.doctor ? `Preferred Doctor: ${d.doctor}` : '',
-        d.date ? `Preferred Date: ${d.date}` : '',
-        d.message ? `Message: ${d.message}` : '',
-      ].filter(Boolean);
-      const url = `https://wa.me/919648046798?text=${encodeURIComponent(lines.join('\n'))}`;
-      window.open(url, '_blank', 'noopener');
-      form.querySelector('.form-success').classList.add('show');
+      button.disabled = true;
+      button.classList.add('is-busy');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+          credentials: 'same-origin',
+        });
+        const data = await res.json();
+        show(data.ok ? success : error, data.message);
+        if (data.ok) form.reset();
+      } catch (err) {
+        show(error, 'Could not send your request. Please check your connection or call the appointment desk.');
+      } finally {
+        button.disabled = false;
+        button.classList.remove('is-busy');
+      }
     });
   }
 })();

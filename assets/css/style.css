@@ -1365,3 +1365,9 @@ a[href^="tel:"] strong, p a[href^="tel:"], .footer a[href^="tel:"], .hero-meta a
   .splash-bar span { transform: none !important; }
   .splash-ripple { display: none; }
 }
+
+/* ---------- Appointment form states ---------- */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-error { display: none; padding: 16px 18px; border-radius: 16px; background: var(--red-50); border: 1px solid var(--red-100); color: var(--red-600); font-weight: 600; margin-top: 18px; }
+.form-error.show { display: block; }
+.btn.is-busy { opacity: .7; pointer-events: none; }

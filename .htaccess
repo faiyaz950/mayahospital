@@ -1,0 +1,54 @@
+# Maya Hospital — Apache settings (Hostinger)
+Options -Indexes
+DirectoryIndex index.php
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Always use HTTPS (Let's Encrypt validation path is left alone)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Old static URLs -> new clean URLs
+  RewriteRule ^index\.(html|php)$ / [R=301,L]
+  RewriteRule ^(about|services|gallery|contact)\.html$ /$1 [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/(about|services|gallery|contact)\.php[\s?]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # Clean URLs: /about -> about.php
+  RewriteRule ^(about|services|gallery|contact)/$ /$1 [R=301,L]
+  RewriteRule ^(about|services|gallery|contact)$ $1.php [L]
+
+  # Never serve private folders, dotfiles or source documents
+  RewriteRule ^(includes|data)(/|$) - [F,L]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule (^|/)\. - [F,L]
+</IfModule>
+
+<FilesMatch "\.(md|pdf|py|sqlite|sql|log|example\.php)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>
+
+ErrorDocument 404 /404.php

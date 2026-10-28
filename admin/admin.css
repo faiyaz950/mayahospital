@@ -117,3 +117,13 @@ body:has(.side-nav) .bar { grid-column: 1 / -1; }
   .item { flex-wrap: wrap; }
   .item-actions { width: 100%; }
 }
+
+/* Home page editor */
+.form-section { margin-bottom: 14px; padding: 0; overflow: hidden; }
+.form-section > summary { list-style: none; cursor: pointer; padding: 18px 24px; font-weight: 800; color: var(--ink); display: flex; justify-content: space-between; align-items: center; }
+.form-section > summary::-webkit-details-marker { display: none; }
+.form-section > summary::after { content: "+"; font-size: 1.3rem; color: var(--ink-3); }
+.form-section[open] > summary { border-bottom: 1px solid var(--line); }
+.form-section[open] > summary::after { content: "–"; }
+.form-section .form { padding: 22px 24px; }
+.sticky-save { position: sticky; bottom: 0; padding: 14px 0; background: linear-gradient(transparent, var(--bg) 40%); }

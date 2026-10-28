@@ -9,6 +9,7 @@ header('X-Frame-Options: DENY');
 
 const ADMIN_NAV = [
     'appointments' => ['./', 'Appointments'],
+    'home'         => ['home.php', 'Home page'],
     'doctors'      => ['content.php?type=doctors', 'Doctors'],
     'services'     => ['content.php?type=services', 'Services'],
     'gallery'      => ['content.php?type=gallery', 'Gallery'],

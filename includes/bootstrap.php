@@ -10,6 +10,7 @@ $site   = $config['site'];
 require __DIR__ . '/icons.php';
 require __DIR__ . '/content.php';
 require __DIR__ . '/render.php';
+require __DIR__ . '/home.php';
 
 date_default_timezone_set('Asia/Kolkata');
 

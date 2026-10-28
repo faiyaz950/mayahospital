@@ -2,3 +2,7 @@
 Thumbs.db
 includes/config.local.php
 data/*.sqlite
+maya-hospital-upload.zip
+maya-hospital-upload/
+assets/uploads/*
+!assets/uploads/.htaccess

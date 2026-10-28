@@ -7,6 +7,10 @@ declare(strict_types=1);
 $config = require __DIR__ . '/config.php';
 $site   = $config['site'];
 
+require __DIR__ . '/icons.php';
+require __DIR__ . '/content.php';
+require __DIR__ . '/render.php';
+
 date_default_timezone_set('Asia/Kolkata');
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -56,7 +60,7 @@ function csrf_valid(?string $token): bool
     return is_string($token) && !empty($_SESSION['csrf']) && hash_equals($_SESSION['csrf'], $token);
 }
 
-/** Shared PDO connection; creates the appointments table on first use. */
+/** Shared PDO connection; creates the appointments and content tables on first use. */
 function db(): PDO
 {
     static $pdo = null;
@@ -87,5 +91,9 @@ function db(): PDO
                INDEX (status), INDEX (created_at)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
 
+    migrate_content($pdo);
+
     return $pdo;
 }
+
+$site = load_settings($site);

@@ -98,7 +98,8 @@ try {
 
 $_SESSION['last_appointment_at'] = time();
 
-if ($config['mail']['to'] !== '') {
+$notifyTo = ($site['notify_email'] ?? '') !== '' ? $site['notify_email'] : $config['mail']['to'];
+if ($notifyTo !== '') {
     $lines = [
         'New appointment request — ' . $site['name'],
         '',
@@ -117,7 +118,7 @@ if ($config['mail']['to'] !== '') {
         'Content-Type: text/plain; charset=UTF-8',
     ];
     $subject = '=?UTF-8?B?' . base64_encode('New appointment: ' . $in['name'] . ' (' . $in['department'] . ')') . '?=';
-    if (!@mail($config['mail']['to'], $subject, implode("\n", $lines), implode("\r\n", $headers))) {
+    if (!@mail($notifyTo, $subject, implode("\n", $lines), implode("\r\n", $headers))) {
         error_log('Appointment email could not be sent.');
     }
 }

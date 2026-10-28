@@ -85,16 +85,24 @@ hPanel → **Security → SSL** → maya-hospital.in ke liye SSL install / activ
 
 ---
 
-## Roz ka kaam
+## Roz ka kaam — sab kuch Admin panel se (`/admin`)
 
-- **Phone number / address badalna:** `includes/config.php` me `site` wale hisse me badlein —
-  header, footer, buttons aur form sab jagah apne aap badal jayega.
-- **Doctor ya department add karna (form ke liye):** `includes/config.php` me
-  `departments` / `doctors` list me naam jodein.
-- **Appointment requests:** `/admin` par login karein. Har request ka status
-  *New → Confirmed → Completed / Cancelled* kar sakte hain. Phone number par click karke call ho jata hai.
-- **Page ka content badalna:** `index.php`, `about.php` wagairah me seedha HTML edit karein.
-  Header/footer badalna ho to `includes/header.php` / `includes/footer.php`.
+| Menu | Kya kar sakte hain |
+|---|---|
+| **Appointments** | Website se aayi requests dekhna, status *New → Confirmed → Completed / Cancelled* karna |
+| **Doctors** | Doctor add / edit / delete, photo badalna, qualifications, intro, areas of focus — Home aur About page dono update hote hain |
+| **Services** | Home page ke service cards: naam, description, category, icon, photo, link |
+| **Gallery** | Photos upload karna, title/category badalna, order badalna |
+| **FAQs** | Home page ke sawal-jawab. Jawab me `{phone_booking}` likhne se clickable number aa jata hai |
+| **Settings** | Phone numbers, address, tagline aur appointment email — poori website par ek saath badalte hain |
+
+- **↑ / ↓** se order badlein, **Visible / Hidden** se bina delete kiye chhupayein.
+- Photos JPG / PNG / WEBP, 8 MB tak. Badi photos apne aap 1600px tak chhoti ho jaati hain.
+- Uploaded photos server par `public_html/assets/uploads/` me save hoti hain.
+- Pehli baar website khulne par database me saara purana content apne aap aa jata hai.
+
+**Page ka design/text jo admin me nahi hai** (jaise hero heading, Services page ke sections) — wo
+`index.php`, `services.php` wagairah me seedha edit hota hai.
 
 ## Local testing (apne computer par)
 

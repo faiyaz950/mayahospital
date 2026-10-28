@@ -70,69 +70,7 @@ include __DIR__ . '/includes/header.php';
       <a href="services" class="btn btn-ghost reveal">View all services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="svc-grid">
-      <a href="services#pain" class="svc reveal">
-        <div class="svc-media"><img src="assets/img/pain.jpg" onerror="this.onerror=null;this.src='assets/img/pain.svg'" alt="Pain Management" loading="lazy"></div>
-        <div class="svc-body">
-          <div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></span><span class="svc-cat">Pain Care</span></div>
-          <h3>Pain Management</h3>
-          <p>Listed treatment options for persistent pain — neck pain, sciatica, nerve and cancer-related pain.</p>
-          <span class="svc-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a href="services#pain" class="svc reveal d1">
-        <div class="svc-media"><img src="assets/img/movesleepandlive.png" onerror="this.onerror=null;this.src='assets/img/spine.svg'" alt="Spine and Joint Care" loading="lazy"></div>
-        <div class="svc-body">
-          <div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="4" rx="1.5"/><rect x="8.5" y="7.5" width="7" height="4" rx="1.5"/><rect x="8" y="13" width="8" height="4" rx="1.5"/><rect x="7.5" y="18.5" width="9" height="3.5" rx="1.5"/></svg></span><span class="svc-cat">Pain Care</span></div>
-          <h3>Spine &amp; Joint Care</h3>
-          <p>Care for spinal and joint pain, including C-arm guided procedures.</p>
-          <span class="svc-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a href="services#treatments" class="svc reveal d2">
-        <div class="svc-media"><img src="assets/img/radiofrequency.png" onerror="this.onerror=null;this.src='assets/img/radiofrequency.svg'" alt="Radiofrequency Treatment" loading="lazy"></div>
-        <div class="svc-body">
-          <div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3l2-6 4 12 3-9 2 3h6"/></svg></span><span class="svc-cat">Procedure</span></div>
-          <h3>Radiofrequency Treatment</h3>
-          <p>A treatment option listed in the hospital's pain-management services.</p>
-          <span class="svc-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a href="services#treatments" class="svc reveal d3">
-        <div class="svc-media"><img src="assets/img/prptherapy.png" onerror="this.onerror=null;this.src='assets/img/prp.svg'" alt="PRP Therapy" loading="lazy"></div>
-        <div class="svc-body">
-          <div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7s-6 6.4-6 11.3a6 6 0 0 0 12 0c0-4.9-6-11.3-6-11.3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span><span class="svc-cat">Procedure</span></div>
-          <h3>PRP Therapy</h3>
-          <p>Platelet-Rich Plasma therapy, listed among the treatment options.</p>
-          <span class="svc-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a href="services#treatments" class="svc reveal">
-        <div class="svc-media"><img src="assets/img/recoveryandcare.png" onerror="this.onerror=null;this.src='assets/img/physio.svg'" alt="Physiotherapy" loading="lazy"></div>
-        <div class="svc-body">
-          <div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="M8 21l2-6 3 2v5M6 11l3-3 4 1 3 3 3-1M10 15l1-6"/></svg></span><span class="svc-cat">Rehabilitation</span></div>
-          <h3>Physiotherapy</h3>
-          <p>Physiotherapy and rehabilitation support for movement and recovery.</p>
-          <span class="svc-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a href="services#ivf" class="svc reveal d1">
-        <div class="svc-media"><img src="assets/img/ivfsupportonyourjourney.png" onerror="this.onerror=null;this.src='assets/img/ivf.svg'" alt="IVF and Fertility Care" loading="lazy"></div>
-        <div class="svc-body">
-          <div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="10.5" cy="10.5" r="3.2"/><circle cx="16" cy="15" r="1"/></svg></span><span class="svc-cat">Women's Health</span></div>
-          <h3>IVF &amp; Fertility Care</h3>
-          <p>Consultation for individuals and couples with fertility concerns.</p>
-          <span class="svc-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-      <a href="about#doctors" class="svc reveal d2">
-        <div class="svc-media"><img src="assets/img/obstectricandgyno.png" onerror="this.onerror=null;this.src='assets/img/obgyn.svg'" alt="Obstetrics and Gynaecology" loading="lazy"></div>
-        <div class="svc-body">
-          <div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M12 13v9M9 19h6"/></svg></span><span class="svc-cat">Women's Health</span></div>
-          <h3>Obstetrics &amp; Gynaecology</h3>
-          <p>Women's healthcare and specialist consultation.</p>
-          <span class="svc-more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
+      <?= render_services() ?>
       <div class="svc-cta reveal d2">
         <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span>
         <h3>Not sure which service you need?</h3>
@@ -180,34 +118,7 @@ include __DIR__ . '/includes/header.php';
         <a href="tel:<?= tel($site['phone_booking']) ?>" class="hdoc-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>Appointments</small><?= e($site['phone_booking']) ?></span></a>
       </div>
     </div>
-    <article class="hdoc reveal d1">
-        <div class="hdoc-photo"><img src="assets/img/drsatish.png" onerror="this.onerror=null;this.src='assets/img/doctor-male.svg'" alt="Dr. Satish Rajput" loading="lazy"></div>
-        <div class="hdoc-body">
-          <span class="hdoc-dept">Pain Management &amp; Spine Care</span>
-          <h3>Dr. Satish Rajput</h3>
-          <div class="doc-quals"><span class="doc-chip">MBBS</span><span class="doc-chip">MD (Anaesthesia)</span><span class="doc-chip">PDCC</span></div>
-          <p>Specialist for persistent neck, back, nerve and joint pain. Trained at K.G.M.C., Lucknow.</p>
-          <div class="tags"><span class="tag">Radiofrequency</span><span class="tag">C-arm Guided</span><span class="tag">PRP Therapy</span></div>
-          <div class="hdoc-actions">
-            <a href="contact#appointment" class="btn btn-red btn-sm">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="about#doctors" class="hdoc-link">View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-    <article class="hdoc reveal d2">
-        <div class="hdoc-photo"><img src="assets/img/drpoonam.png" onerror="this.onerror=null;this.src='assets/img/doctor-female.svg'" alt="Dr. Poonam Sharma" loading="lazy"></div>
-        <div class="hdoc-body">
-          <span class="hdoc-dept">Obstetrics &amp; Gynaecology</span>
-          <h3>Dr. Poonam Sharma</h3>
-          <div class="doc-quals"><span class="doc-chip">MBBS</span><span class="doc-chip">MS (Obs &amp; Gynae)</span><span class="doc-chip">FMAS</span><span class="doc-chip">FRM</span></div>
-          <p>Specialist for women&rsquo;s health, fertility evaluation and IVF-related consultation. Fellow in ART.</p>
-          <div class="tags"><span class="tag">IVF</span><span class="tag">Fertility</span><span class="tag">Women&rsquo;s Health</span></div>
-          <div class="hdoc-actions">
-            <a href="contact#appointment" class="btn btn-red btn-sm">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="about#doctors" class="hdoc-link">View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
+    <?= render_home_doctors() ?>
   </div>
 </section>
 
@@ -233,12 +144,7 @@ include __DIR__ . '/includes/header.php';
       <p>Quick answers to common questions. For anything else, call the helpline at <a href="tel:<?= tel($site['phone_helpline']) ?>" style="color:var(--red-600);font-weight:700"><?= e($site['phone_helpline']) ?></a>.</p>
     </div>
     <div class="faq">
-      <details class="reveal" open><summary>How can I book an appointment?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Call the appointment desk at <a href="tel:<?= tel($site['phone_booking']) ?>"><?= e($site['phone_booking']) ?></a> or use the <a href="contact#appointment">appointment form</a>. Your request is pending until the hospital confirms the date and time.</p></details>
-      <details class="reveal"><summary>Which specialties does Maya Hospital offer?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Pain management, spine and joint care, physiotherapy, IVF and fertility care, and obstetrics and gynaecology.</p></details>
-      <details class="reveal"><summary>Which doctor should I see for back, neck or joint pain?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Dr. Satish Rajput is featured for pain management and spine care. <a href="about#doctors">View his profile</a>.</p></details>
-      <details class="reveal"><summary>Are IVF facilities available?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Yes, IVF facilities are available with Dr. Poonam Sharma. Contact the hospital to enquire about evaluation and the services currently offered.</p></details>
-      <details class="reveal"><summary>How do I know which treatment is right for me?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>The appropriate approach depends on a clinician's evaluation of your individual condition. Please discuss your symptoms and options directly with the doctor.</p></details>
-      <details class="reveal"><summary>Where is the hospital located?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Maya Hospital, Awas Vikas Tiraha, Barhpur, Farrukhabad, Uttar Pradesh – 209625, India.</p></details>
+      <?= render_faqs() ?>
     </div>
   </div>
 </section>

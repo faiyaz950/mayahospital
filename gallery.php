@@ -24,79 +24,12 @@ include __DIR__ . '/includes/header.php';
   <div class="container">
     <div class="gal-toolbar reveal">
       <div class="filters" role="toolbar" aria-label="Filter photos">
-        <button class="filter active" data-filter="all" aria-pressed="true">All <span class="count">9</span></button>
-        <button class="filter" data-filter="exterior" aria-pressed="false">Exterior &amp; Entrance <span class="count">1</span></button>
-        <button class="filter" data-filter="reception" aria-pressed="false">Reception &amp; Waiting <span class="count">2</span></button>
-        <button class="filter" data-filter="team" aria-pressed="false">Doctors &amp; Team <span class="count">2</span></button>
-        <button class="filter" data-filter="facilities" aria-pressed="false">Consultation &amp; Facilities <span class="count">1</span></button>
-        <button class="filter" data-filter="services" aria-pressed="false">Services &amp; Awareness <span class="count">3</span></button>
+        <?= render_gallery_filters() ?>
       </div>
-      <p class="gal-count" aria-live="polite">Showing <strong>9</strong> photos</p>
+      <p class="gal-count" aria-live="polite">Showing <strong><?= gallery_count() ?></strong> photos</p>
     </div>
     <div class="gal-grid">
-      <figure class="g-card reveal" data-cat="exterior">
-        <button class="g-media" type="button" aria-label="View larger: Hospital Exterior and Entrance">
-          <img src="assets/img/hero.jpg" onerror="this.onerror=null;this.src='assets/img/hero.svg'" alt="Hospital Exterior and Entrance" loading="lazy">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Exterior &amp; Entrance</span><strong>Hospital Exterior &amp; Entrance</strong><span class="g-sub">Awas Vikas Tiraha, Barhpur</span></figcaption>
-      </figure>
-      <figure class="g-card reveal d1" data-cat="reception">
-        <button class="g-media" type="button" aria-label="View larger: Reception and Waiting Area">
-          <img src="assets/img/reception.jpg" onerror="this.onerror=null;this.src='assets/img/reception.svg'" alt="Reception and Waiting Area" loading="lazy">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Reception &amp; Waiting</span><strong>Reception &amp; Waiting Area</strong><span class="g-sub">Where to arrive</span></figcaption>
-      </figure>
-      <figure class="g-card reveal d2" data-cat="team">
-        <button class="g-media" type="button" aria-label="View larger: Dr. Satish Rajput">
-          <img src="assets/img/drsatish.png" onerror="this.onerror=null;this.src='assets/img/doctor-male.svg'" alt="Dr. Satish Rajput" loading="lazy" style="object-position:center 18%">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Doctors &amp; Team</span><strong>Dr. Satish Rajput</strong><span class="g-sub">Pain Management &amp; Spine Care</span></figcaption>
-      </figure>
-      <figure class="g-card reveal" data-cat="facilities">
-        <button class="g-media" type="button" aria-label="View larger: Consultation Room">
-          <img src="assets/img/consult.jpg" onerror="this.onerror=null;this.src='assets/img/consult.svg'" alt="Consultation Room" loading="lazy">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Consultation &amp; Facilities</span><strong>Consultation Room</strong><span class="g-sub">Facilities</span></figcaption>
-      </figure>
-      <figure class="g-card reveal d1" data-cat="team">
-        <button class="g-media" type="button" aria-label="View larger: Dr. Poonam Sharma">
-          <img src="assets/img/drpoonam.png" onerror="this.onerror=null;this.src='assets/img/doctor-female.svg'" alt="Dr. Poonam Sharma" loading="lazy" style="object-position:center 18%">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Doctors &amp; Team</span><strong>Dr. Poonam Sharma</strong><span class="g-sub">Obstetrics &amp; Gynaecology</span></figcaption>
-      </figure>
-      <figure class="g-card reveal d2" data-cat="services">
-        <button class="g-media" type="button" aria-label="View larger: Spine and Joint Care">
-          <img src="assets/img/movesleepandlive.png" onerror="this.onerror=null;this.src='assets/img/spine.svg'" alt="Spine and Joint Care" loading="lazy">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Services &amp; Awareness</span><strong>Spine &amp; Joint Care</strong><span class="g-sub">Services &amp; Awareness</span></figcaption>
-      </figure>
-      <figure class="g-card reveal" data-cat="services">
-        <button class="g-media" type="button" aria-label="View larger: IVF and Fertility Care">
-          <img src="assets/img/ivfsupportonyourjourney.png" onerror="this.onerror=null;this.src='assets/img/ivf.svg'" alt="IVF and Fertility Care" loading="lazy">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Services &amp; Awareness</span><strong>IVF &amp; Fertility Care</strong><span class="g-sub">Services &amp; Awareness</span></figcaption>
-      </figure>
-      <figure class="g-card reveal d1" data-cat="services">
-        <button class="g-media" type="button" aria-label="View larger: Physiotherapy">
-          <img src="assets/img/recoveryandcare.png" onerror="this.onerror=null;this.src='assets/img/physio.svg'" alt="Physiotherapy" loading="lazy">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Services &amp; Awareness</span><strong>Physiotherapy</strong><span class="g-sub">Services &amp; Awareness</span></figcaption>
-      </figure>
-      <figure class="g-card reveal d2" data-cat="reception">
-        <button class="g-media" type="button" aria-label="View larger: Patient Waiting Lounge">
-          <img src="assets/img/waiting.jpg" onerror="this.onerror=null;this.src='assets/img/waiting.svg'" alt="Patient Waiting Lounge" loading="lazy">
-          <span class="g-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-        </button>
-        <figcaption><span class="g-cat">Reception &amp; Waiting</span><strong>Patient Waiting Lounge</strong><span class="g-sub">Reception &amp; Waiting</span></figcaption>
-      </figure>
+      <?= render_gallery_items() ?>
     </div>
   </div>
 </section>

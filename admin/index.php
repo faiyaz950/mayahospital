@@ -1,11 +1,8 @@
 <?php
 /**
- * Admin panel: sign in and manage appointment requests.
+ * Admin panel home: sign in, then manage appointment requests.
  */
-require __DIR__ . '/../includes/bootstrap.php';
-
-header('X-Robots-Tag: noindex, nofollow');
-header('X-Frame-Options: DENY');
+require __DIR__ . '/_layout.php';
 
 const STATUSES = ['new' => 'New', 'confirmed' => 'Confirmed', 'completed' => 'Completed', 'cancelled' => 'Cancelled'];
 
@@ -70,6 +67,7 @@ if ($loggedIn) {
 }
 $total = array_sum($counts);
 ?>
+<?php if (!$loggedIn): ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -82,12 +80,11 @@ $total = array_sum($counts);
 <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-<?php if (!$loggedIn): ?>
   <main class="login">
     <form method="post" class="login-card">
       <img src="../assets/img/logo.png" alt="" width="56" height="50">
       <h1><?= e($site['name']) ?></h1>
-      <p class="muted">Admin panel · Appointment requests</p>
+      <p class="muted">Admin panel</p>
       <?php if (!$isSetUp): ?>
         <div class="alert">Admin login is not set up yet. Add a password hash to <code>includes/config.local.php</code> (see DEPLOYMENT.md).</div>
       <?php else: ?>
@@ -101,56 +98,54 @@ $total = array_sum($counts);
       <a class="back" href="../">← Back to website</a>
     </form>
   </main>
-<?php else: ?>
-  <header class="bar">
-    <div class="brand"><img src="../assets/img/logo.png" alt="" width="36" height="32"><span><strong><?= e($site['name']) ?></strong><small>Appointment requests</small></span></div>
-    <div class="bar-actions">
-      <a href="../" target="_blank" rel="noopener">View site</a>
-      <form method="post"><?= csrf_field() ?><input type="hidden" name="action" value="logout"><button type="submit">Sign out</button></form>
-    </div>
-  </header>
-  <main class="wrap">
-    <nav class="tabs">
-      <a href="./" class="<?= $filter === '' ? 'on' : '' ?>">All <b><?= $total ?></b></a>
-      <?php foreach (STATUSES as $key => $label): ?>
-        <a href="?status=<?= $key ?>" class="<?= $filter === $key ? 'on' : '' ?> t-<?= $key ?>"><?= $label ?> <b><?= $counts[$key] ?? 0 ?></b></a>
-      <?php endforeach; ?>
-    </nav>
-
-    <?php if (!$rows): ?>
-      <p class="empty">No appointment requests<?= $filter ? ' with status “' . e(STATUSES[$filter]) . '”' : '' ?> yet.</p>
-    <?php else: ?>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Received</th><th>Patient</th><th>Department / Doctor</th><th>Preferred date</th><th>Message</th><th>Status</th></tr></thead>
-          <tbody>
-          <?php foreach ($rows as $r): ?>
-            <tr>
-              <td data-label="Received"><?= e(date('d M Y, h:i A', strtotime($r['created_at']))) ?></td>
-              <td data-label="Patient"><strong><?= e($r['name']) ?></strong><a href="tel:<?= e(tel($r['phone'])) ?>"><?= e($r['phone']) ?></a></td>
-              <td data-label="Department"><?= e($r['department']) ?><small><?= e($r['doctor'] ?: 'No preference') ?></small></td>
-              <td data-label="Date"><?= $r['preferred_date'] ? e(date('d M Y', strtotime($r['preferred_date']))) : '<span class="muted">—</span>' ?></td>
-              <td data-label="Message" class="msg"><?= $r['message'] ? nl2br(e($r['message'])) : '<span class="muted">—</span>' ?></td>
-              <td data-label="Status">
-                <form method="post" action="?status=<?= e($filter) ?>" class="status-form">
-                  <?= csrf_field() ?>
-                  <input type="hidden" name="action" value="status">
-                  <input type="hidden" name="id" value="<?= (int) $r['id'] ?>">
-                  <select name="status" class="s-<?= e($r['status']) ?>" onchange="this.form.submit()">
-                    <?php foreach (STATUSES as $key => $label): ?>
-                      <option value="<?= $key ?>"<?= $r['status'] === $key ? ' selected' : '' ?>><?= $label ?></option>
-                    <?php endforeach; ?>
-                  </select>
-                  <noscript><button type="submit">Save</button></noscript>
-                </form>
-              </td>
-            </tr>
-          <?php endforeach; ?>
-          </tbody>
-        </table>
-      </div>
-    <?php endif; ?>
-  </main>
-<?php endif; ?>
 </body>
 </html>
+<?php else: admin_head('Appointments', 'appointments'); ?>
+  <div class="page-head">
+    <div>
+      <h1>Appointment requests</h1>
+      <p class="muted">Requests sent from the website contact form. Click a phone number to call.</p>
+    </div>
+  </div>
+
+  <nav class="tabs">
+    <a href="./" class="<?= $filter === '' ? 'on' : '' ?>">All <b><?= $total ?></b></a>
+    <?php foreach (STATUSES as $key => $label): ?>
+      <a href="?status=<?= $key ?>" class="<?= $filter === $key ? 'on' : '' ?>"><?= $label ?> <b><?= $counts[$key] ?? 0 ?></b></a>
+    <?php endforeach; ?>
+  </nav>
+
+  <?php if (!$rows): ?>
+    <p class="empty">No appointment requests<?= $filter ? ' with status “' . e(STATUSES[$filter]) . '”' : '' ?> yet.</p>
+  <?php else: ?>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Received</th><th>Patient</th><th>Department / Doctor</th><th>Preferred date</th><th>Message</th><th>Status</th></tr></thead>
+        <tbody>
+        <?php foreach ($rows as $r): ?>
+          <tr>
+            <td data-label="Received"><?= e(date('d M Y, h:i A', strtotime($r['created_at']))) ?></td>
+            <td data-label="Patient"><strong><?= e($r['name']) ?></strong><a href="tel:<?= e(tel($r['phone'])) ?>"><?= e($r['phone']) ?></a></td>
+            <td data-label="Department"><?= e($r['department']) ?><small><?= e($r['doctor'] ?: 'No preference') ?></small></td>
+            <td data-label="Date"><?= $r['preferred_date'] ? e(date('d M Y', strtotime($r['preferred_date']))) : '<span class="muted">—</span>' ?></td>
+            <td data-label="Message" class="msg"><?= $r['message'] ? nl2br(e($r['message'])) : '<span class="muted">—</span>' ?></td>
+            <td data-label="Status">
+              <form method="post" action="?status=<?= e($filter) ?>" class="status-form">
+                <?= csrf_field() ?>
+                <input type="hidden" name="action" value="status">
+                <input type="hidden" name="id" value="<?= (int) $r['id'] ?>">
+                <select name="status" class="s-<?= e($r['status']) ?>" onchange="this.form.submit()">
+                  <?php foreach (STATUSES as $key => $label): ?>
+                    <option value="<?= $key ?>"<?= $r['status'] === $key ? ' selected' : '' ?>><?= $label ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <noscript><button type="submit">Save</button></noscript>
+              </form>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  <?php endif; ?>
+<?php admin_foot(); endif; ?>
